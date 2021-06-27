@@ -10,6 +10,7 @@
 - [表格组件](#表格组件)
     - [基本表](#基本表) 
     - [组合表](#组合表)
+    - [全局过滤器](#全局过滤器)
 
 
 ## 表格组件
@@ -39,3 +40,23 @@ const columns = useMemo(()=>GROUPED_COLUMNS, []);
 ```
 
 ![header-group-table](https://github.com/BlueOrgreen/basic-conponents/blob/master/imgs/header-group-table.png)
+
+
+### 全局过滤器
+[(返回上面)](#目录)
+
+可以直接在客户端这边实现, 不再像传统的一样查询放在与后端的交互中, 而是设置了全局的过滤器, 过滤整个数据源的字段内容.
+
+主要是通过 ```useGlobalFilter``` 的hooks传入 ```useTable``` 中, 获得两个属性 ```globalFilter, setGlobalFilter```
+
+将其传入 ***GlobalFilter*** 组件内
+
+![global-filter](https://github.com/BlueOrgreen/basic-conponents/blob/master/imgs/globaFilter.gif)
+
+```jsx
+// useGlobalFilter 全局过滤器hooks
+const {..., state, setGlobalFilter} = useTable({...}, useGlobalFilter);
+const { globalFilter } = state;
+
+<GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+```
