@@ -15,6 +15,7 @@
 
 ## 表格组件
 
+<br />
 
 ### 基本表
 [(返回上面)](#目录)
@@ -27,6 +28,7 @@
 
 ![basic table](https://github.com/BlueOrgreen/basic-conponents/blob/master/imgs/basic-component.png)
 
+<br />
 
 ### 组合表
 [(返回上面)](#目录)
