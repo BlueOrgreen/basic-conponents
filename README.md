@@ -27,10 +27,11 @@
 
 #### 组合表
 
-使用```GROUPED_COLUMNS```的columns数据格式, 具体看这里(https://github.com/BlueOrgreen/basic-conponents/blob/master/src/components/table/columns.js)
+主要是通过改变columns的数据结果, 
+具体看这里[GROUPED_COLUMNS](https://github.com/BlueOrgreen/basic-conponents/blob/master/src/components/table/columns.js)
 
 ```js
-// 换成GROUPED_COLUMNS
+// table/index.js 中的 columns 数据源换成 GROUPED_COLUMNS
 const columns = useMemo(()=>GROUPED_COLUMNS, []);
 ```
 
