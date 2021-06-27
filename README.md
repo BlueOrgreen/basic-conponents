@@ -20,7 +20,7 @@
 
 生成实例, 再从实例中获取属性 ```getTableProps、getTableBodyProps、headerGroups、rows、prepareRow``` 
 
-根据生成基本表; 其它各种组合类型表、排序表都是基于此开发。
+根据这些属性生成基本表; 其它各种组合类型表、排序表都是基于基本表开发。
 
 ![basic table](https://github.com/BlueOrgreen/basic-conponents/blob/master/imgs/basic-component.png)
 
