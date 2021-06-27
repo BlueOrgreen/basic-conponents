@@ -34,6 +34,7 @@ export const COLUMNS = [
     }
 ];
 
+// 组合表头 columns 的数据结构
 export const GROUPED_COLUMNS = [
     {
         Header: 'Id',
