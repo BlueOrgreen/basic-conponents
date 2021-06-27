@@ -15,7 +15,7 @@
 ## 表格组件
 
 
-#### 基本表
+### 基本表
 [(返回上面)](#目录)
 
 使用 ***react-table*** 进行搭建，基本原理是使用 ```useTable``` 并传入两个参数 ```columns、data```
@@ -27,7 +27,7 @@
 ![basic table](https://github.com/BlueOrgreen/basic-conponents/blob/master/imgs/basic-component.png)
 
 
-#### 组合表
+### 组合表
 [(返回上面)](#目录)
 
 主要是通过改变columns的数据结果, 
