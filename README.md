@@ -24,3 +24,14 @@
 
 ![basic table](https://github.com/BlueOrgreen/basic-conponents/blob/master/imgs/basic-component.png)
 
+
+#### 组合表
+
+使用```GROUPED_COLUMNS```的columns数据格式, 具体看这里(https://github.com/BlueOrgreen/basic-conponents/blob/master/src/components/table/columns.js)
+
+```js
+// 换成GROUPED_COLUMNS
+const columns = useMemo(()=>GROUPED_COLUMNS, []);
+```
+
+![header-group-table](https://github.com/BlueOrgreen/basic-conponents/blob/master/imgs/header-group-table.png)
