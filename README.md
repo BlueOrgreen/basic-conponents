@@ -52,8 +52,6 @@ const columns = useMemo(()=>GROUPED_COLUMNS, []);
 
 将其传入 ***GlobalFilter*** 组件内
 
-![global-filter](https://github.com/BlueOrgreen/basic-conponents/blob/master/imgs/globaFilter.gif)
-
 ```jsx
 // useGlobalFilter 全局过滤器hooks
 const {..., state, setGlobalFilter} = useTable({...}, useGlobalFilter);
@@ -61,3 +59,7 @@ const { globalFilter } = state;
 
 <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
 ```
+
+![global-filter](https://github.com/BlueOrgreen/basic-conponents/blob/master/imgs/globaFilter.gif)
+
+<br />
