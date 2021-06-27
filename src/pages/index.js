@@ -7,7 +7,7 @@ export const Page = () => {
         <React.Fragment>
             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                 <button style={{margin: '0 10px'}} onClick={()=>setInit('basictable')}>table组件</button>
-                <button onClick={()=>setInit('upload')}>table组件</button>
+                <button onClick={()=>setInit('upload')}>upload组件</button>
             </div>
             <br />
             <hr />

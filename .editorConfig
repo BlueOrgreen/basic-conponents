@@ -1,0 +1,25 @@
+# 当打开一个文件时，EditorConfig插件会在打开的文件目录和每个父目录中查找一个名为.editorConfig的文件。
+# 如果找到了根文件路径或者找到了带有root=true的EditorConfig文件，那么对.editorConfig文件的搜索就会停止。
+root = true 
+
+# 匹配的文件
+[*] 
+
+# 缩进的类型 [space | tab] 
+indent_style = space 
+
+# indent_size应该设置为tab的大小，制表符的大小应该是tab_width(如果指定的话);否则为编辑器设置的选项卡大小。这些值不区分大小写。
+# tab_width: 设置为一个整数，定义用于表示tab的列数。默认为indent_size的值，通常不需要指定。
+indent_size = 2 
+
+# 定义换行符 [lf | cr | crlf] ,这些值不区分大小写
+end_of_line = lf 
+
+# 编码格式。支持latin1、utf-8、utf-8-bom、utf-16be和utf-16le，不建议使用uft-8-bom。 
+charset = utf-8 
+
+# 将其设置为true以删除文件中换行符之前的所有空格字符，将其设置为false以确保不删除换行符。
+trim_trailing_whitespace = true 
+
+# 文件是否以一个空白行结尾 [true | false] 
+insert_final_newline = true
