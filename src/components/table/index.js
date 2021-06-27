@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react'
-import { useTable, useSortBy } from 'react-table';
+import { useTable, useSortBy, useGlobalFilter } from 'react-table';
 import MOCK_DATA from './MOCK_DATA.json';
 import { COLUMNS, GROUPED_COLUMNS } from './columns';
+import { GloalFilter } from './globalFilter';
 import './index.css';
 
 export const CustomBasicTable = () => {
@@ -12,18 +13,24 @@ export const CustomBasicTable = () => {
     const tableInstance = useTable({
         columns,
         data
-    }, useSortBy);
+    }, useGlobalFilter, useSortBy);
 
     const {
         getTableProps,
         getTableBodyProps,
         headerGroups,
         rows,
-        footerGroups,
+        // footerGroups,
         prepareRow,
+        state,
+        setGlobalFilter,
     } = tableInstance;
 
+    const { globalFilter } = state;
+
     return (
+      <React.Fragment>
+        <GloalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         <table {...getTableProps}>
             <thead>
                 {headerGroups.map((headerGroup) => (
@@ -51,7 +58,7 @@ export const CustomBasicTable = () => {
                     )
                 })}
             </tbody>
-            <tfoot>
+            {/* <tfoot>
                 {
                     footerGroups.map(footerGroup => (
                         <tr {...footerGroup.getFooterGroupProps()}>
@@ -61,7 +68,8 @@ export const CustomBasicTable = () => {
                         </tr>
                     ))
                 }
-            </tfoot>
+            </tfoot> */}
         </table>
+        </React.Fragment>
     )
 };
