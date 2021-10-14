@@ -1,30 +1,36 @@
 import React, { useMemo } from 'react'
-import { useTable, useSortBy, useGlobalFilter } from 'react-table';
+import { useTable, useSortBy, useGlobalFilter, useFilters } from 'react-table';
 import MOCK_DATA from './MOCK_DATA.json';
 import { COLUMNS, GROUPED_COLUMNS } from './columns';
 import { GloalFilter } from './globalFilter';
+import { ColumnFilter } from './columnFilter';
 import './index.css';
 
 export const CustomBasicTable = () => {
     const columns = useMemo(()=>COLUMNS, []);
     // const columns = useMemo(()=>GROUPED_COLUMNS, []);
     const data = useMemo(()=>MOCK_DATA, []);
-
-    const tableInstance = useTable({
-        columns,
-        data
-    }, useGlobalFilter, useSortBy);
+    const default_columns = useMemo(() => {
+      return {
+        Filter: ColumnFilter
+      }
+    }, []);
 
     const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        // footerGroups,
-        prepareRow,
-        state,
-        setGlobalFilter,
-    } = tableInstance;
+      getTableProps,
+      getTableBodyProps,
+      headerGroups,
+      rows,
+      // footerGroups,
+      prepareRow,
+      state,
+      setGlobalFilter,
+  } = useTable({
+        columns,
+        data,
+        default_columns,
+    }, useGlobalFilter, useFilters);
+    // useSortBy
 
     const { globalFilter } = state;
 
@@ -36,11 +42,15 @@ export const CustomBasicTable = () => {
                 {headerGroups.map((headerGroup) => (
                     <tr {...headerGroup.getHeaderGroupProps}>
                         {headerGroup.headers.map((column) => (
-                            <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                          //  {...column.getHeaderProps(column.getSortByToggleProps())}
+                            <th>
                                 {column.render('Header')}
-                                <span>
+                                {/* <span>
                                     {column.isSorted? (column.isSortedDesc? '▼' : '▲') : ''}
-                                </span>
+                                </span> */}
+                                <div>
+                                  {column.canFilter? column.render('Filter') : null}
+                                </div>
                             </th>
                         ))}
                     </tr>
