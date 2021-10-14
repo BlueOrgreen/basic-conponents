@@ -9,7 +9,7 @@
     - [基本表](#基本表) 
     - [组合表](#组合表)
     - [全局过滤器](#全局过滤器)
-
+- [无限滚动组件](#无限组件)
 
 ## 表格组件
 
@@ -61,3 +61,27 @@ const { globalFilter } = state;
 ![global-filter](https://github.com/BlueOrgreen/basic-conponents/blob/master/imgs/globaFilter.gif)
 
 <br />
+
+## 无限滚动组件
+[(返回上面)](#目录)
+
+实现原理： 后端接口对数据进行分页，前端使用`intersection observer`监听当前list的最后一个元素，窗口出现最后一个元素后会查询
+下一页的信息，添加到页面上
+
+```jsx
+const observer = useRef();
+// 监听最后一个元素
+const lastBookElementRef = useCallback(node => {
+    if(loading) return;
+    if(observer.current) observer.current.disconnect()
+    observer.current = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting && hasMore) {
+        setPage(prePage => prePage + 1)
+      }
+    });
+    if(node) observer.current.observe(node)
+  }, [loading, hasMore])
+  
+// 最后一个List元素
+<div ref={lastBookElementRef} key={i}>{i}</div>
+```
