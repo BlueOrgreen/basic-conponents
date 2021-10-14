@@ -68,6 +68,8 @@ const { globalFilter } = state;
 实现原理： 后端接口对数据进行分页，前端使用`intersection observer`监听当前list的最后一个元素，窗口出现最后一个元素后会查询
 下一页的信息，添加到页面上
 
+![infinite-scroll](https://github.com/BlueOrgreen/basic-conponents/blob/master/imgs/infinite-scroll.gif)
+
 ```jsx
 const observer = useRef();
 // 监听最后一个元素
